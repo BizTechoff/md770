@@ -1,8 +1,8 @@
+import jwt from 'jsonwebtoken';
 import { BackendMethod, Controller, ControllerBase, Fields, UserInfo, Validators } from "remult";
 import { terms } from "../terms";
 import { Roles } from "./roles";
 import { User } from "./user";
-import jwt from 'jsonwebtoken';
 
 @Controller('signIn')
 export class SignInController extends ControllerBase {
@@ -21,7 +21,7 @@ export class SignInController extends ControllerBase {
     @Fields.boolean({
         caption: terms.rememberOnThisDevice,
     })
-    rememberOnThisDevice = false;
+    rememberOnThisDevice = true;
 
     @BackendMethod({ allowed: true })
     async signIn() {
@@ -46,14 +46,31 @@ export class SignInController extends ControllerBase {
                 result = {
                     id: u.id,
                     roles: [],
-                    name: u.name
+                    name: u.name,
+                    isAdmin: false,
+                    isManager: false,
+                    isSocial: false,
+                    isSite: false
                 };
                 if (u.admin) {
                     result.roles.push(Roles.admin);
+                    result.isAdmin = true
+                }
+                else if (u.manager) {
+                    result.roles.push(Roles.manager);
+                    result.isManager = true
+                }
+                else if (u.social) {
+                    result.roles.push(Roles.social);
+                    result.isSocial = true
+                }
+                else if (u.site) {
+                    result.roles.push(Roles.site);
+                    result.isSite = true
                 }
             }
         }
-
+ 
         if (result!) {
             return (jwt.sign(result, getJwtSecret()));
         }

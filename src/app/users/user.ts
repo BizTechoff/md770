@@ -38,6 +38,24 @@ export class User extends IdEntity {
     })
     admin = false;
 
+    @Fields.boolean({
+        allowApiUpdate: Roles.admin,
+        caption: terms.manager
+    })
+    manager = false;
+
+    @Fields.boolean({
+        allowApiUpdate: Roles.admin,
+        caption: terms.social
+    })
+    social = false;
+
+    @Fields.boolean({
+        allowApiUpdate: Roles.admin,
+        caption: terms.site
+    })
+    site = false;
+
     async hashAndSetPassword(password: string) {
         this.password = (await import('password-hash')).generate(password);
     }
