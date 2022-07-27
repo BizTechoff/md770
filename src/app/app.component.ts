@@ -90,6 +90,10 @@ export class AppComponent implements OnInit {
     return 'angular-starter-project';
   }
 
+  openSite(url: string) {
+    window.open(url, '_blank')
+  }
+
   shouldDisplayRoute(route: Route) {
     if (!(route.path && route.path.indexOf(':') < 0 && route.path.indexOf('**') < 0))
       return false;

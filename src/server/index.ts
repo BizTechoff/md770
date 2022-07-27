@@ -27,7 +27,7 @@ async function startup() {
 
     app.use(express.static('dist/angular-starter-project'));
     app.use('/*', async (req, res) => {
-        try { 
+        try {
             res.sendFile(process.cwd() + '/dist/angular-starter-project/index.html');
         } catch (err) {
             res.sendStatus(500);

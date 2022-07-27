@@ -79,6 +79,6 @@ export class SignInController extends ControllerBase {
 }
 export function getJwtSecret() {
     if (process.env['NODE_ENV'] === "production")
-        return process.env['JWT_SECRET']!;
-    return "my secret key";
+        return process.env['TOKEN_SIGN_KEY']!;
+    return process.env['JWT_SECRET']!;
 }
