@@ -6,11 +6,13 @@ import { User } from "./user";
 
 @Controller('signIn')
 export class SignInController extends ControllerBase {
+
     @Fields.string({
         caption: terms.username,
         validate: Validators.required
     })
     user = '';
+
     @Fields.string({
         caption: terms.password,
         validate: Validators.required,
@@ -77,6 +79,7 @@ export class SignInController extends ControllerBase {
         throw new Error(terms.invalidSignIn);
     }
 }
+
 export function getJwtSecret() {
     if (process.env['NODE_ENV'] === "production")
         return process.env['TOKEN_SIGN_KEY']!;

@@ -94,6 +94,13 @@ export class AppComponent implements OnInit {
     window.open(url, '_blank')
   }
 
+  showRemultUser(e: MouseEvent) {
+    try {
+      if (e.ctrlKey) { alert(JSON.stringify(this.remult.user)) }
+    }
+    catch (err) { console.log(err) }
+  }
+
   shouldDisplayRoute(route: Route) {
     if (!(route.path && route.path.indexOf(':') < 0 && route.path.indexOf('**') < 0))
       return false;

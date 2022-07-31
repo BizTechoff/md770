@@ -34,4 +34,4 @@ export class AuthService {
     }
 }
 
-const AUTH_TOKEN_KEY = "authToken";
+const AUTH_TOKEN_KEY = "md770-authToken";

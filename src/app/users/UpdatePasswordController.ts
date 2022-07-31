@@ -4,12 +4,14 @@ import { User } from "./user";
 
 @Controller("updatePassword")
 export class UpdatePasswordController extends ControllerBase {
+
     @Fields.string({
         caption: terms.password,
         validate: Validators.required,
         inputType: 'password'
     })
     password = '';
+    
     @Fields.string<UpdatePasswordController>({
         caption: terms.confirmPassword,
         validate: [Validators.required, self => {

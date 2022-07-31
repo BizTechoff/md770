@@ -1,7 +1,8 @@
 export const terms = {
     UserRoleNOTSET:'חובה סוג הרשאה',
     appName: 'MD770',
-    appVersion: '2022.07.27.0',
+    appVersion: '2022.07.31.0',
+    refresh:'רענן',
     name: 'שם',
     requiredField: 'חובה', 
     uniqueField:'קיים',
@@ -51,7 +52,7 @@ export const terms = {
     invalidSignIn: 'פרטי התחברות שגויים',
     invalidSignUp:'שגיאה בהרשמה',
     rememberOnThisDevice: 'זכור אותי',
-    passwordDeleteConfirmOf: 'בטוח לאפס סיסמה ל: ',
+    passwordDeleteConfirmOf: 'לאפס סיסמה ל: ',
     addUser: 'הוספת משתמש',
     addShluch: 'הוספת שליח',
     addAvrech: 'הוספת אברך',
